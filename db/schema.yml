@@ -72,6 +72,12 @@ assigned_server_roles:
 - server_role_id
 - active
 - priority
+asset_details:
+- description
+- location
+- room
+- rack_name
+- lowest_rack_unit
 audit_events:
 - id
 - event
@@ -6133,6 +6139,7 @@ physical_servers:
 - support_contact
 - description
 - ems_ref
+- asset_details_id
 - created_at
 - updated_at
 pictures:
