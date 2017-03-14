@@ -98,6 +98,8 @@
 :ems:
   :ems_redhat:
     :resolve_ip_addresses: true
+    :inventory:
+      :read_timeout: 1.hour
     :service:
       :read_timeout: 1.hour
   :ems_kubernetes:
@@ -127,8 +129,6 @@
   :kubernetes:
     :refresh_interval: 15.minutes
   :openshift:
-    :refresh_interval: 15.minutes
-  :openshift_enterprise:
     :refresh_interval: 15.minutes
   :raise_vm_snapshot_complete_if_created_within: 15.minutes
   :refresh_interval: 24.hours
@@ -1067,6 +1067,7 @@
 :repository_scanning:
   :defaultsmartproxy:
 :server:
+  :asynchronous_notifications: true
   :case_sensitive_name_search: false
   :company: My Company
   :console_proxy_disabled: true
@@ -1204,6 +1205,7 @@
       :starting_timeout: 10.minutes
       :stopping_timeout: 10.minutes
     :embedded_ansible_worker:
+      :starting_timeout: 20.minutes
       :poll: 10.seconds
       :memory_threshold: 0.megabytes
     :ems_refresh_core_worker:
@@ -1291,10 +1293,6 @@
         :poll: 1.seconds
       :event_catcher_openshift:
         :poll: 1.seconds
-      :event_catcher_openshift_enterprise:
-        :poll: 1.seconds
-      :event_catcher_atomic_enterprise:
-        :poll: 1.seconds
       :event_catcher_cinder:
         :poll: 10.seconds
       :event_catcher_swift:
@@ -1318,7 +1316,6 @@
           :metrics_port: 5000
           :metrics_path: "/hawkular/metrics"
         :ems_metrics_collector_worker_openshift: {}
-        :ems_metrics_collector_worker_openshift_enterprise: {}
         :ems_metrics_collector_worker_openstack: {}
         :ems_metrics_collector_worker_openstack_infra: {}
         :ems_metrics_collector_worker_openstack_network: {}
@@ -1351,7 +1348,6 @@
         :ems_refresh_worker_kubernetes: {}
         :ems_refresh_worker_microsoft: {}
         :ems_refresh_worker_openshift: {}
-        :ems_refresh_worker_openshift_enterprise: {}
         :ems_refresh_worker_openstack: {}
         :ems_refresh_worker_openstack_infra: {}
         :ems_refresh_worker_openstack_network: {}
