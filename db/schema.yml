@@ -6153,7 +6153,6 @@ physical_servers:
 - ems_ref
 - created_at
 - updated_at
-- asset_details_id
 - health_state
 - power_state
 - hostname
@@ -6164,6 +6163,7 @@ physical_servers:
 - serial_number
 - field_replaceable_unit
 - raw_power_state
+- asset_details_id
 pictures:
 - id
 - resource_id
