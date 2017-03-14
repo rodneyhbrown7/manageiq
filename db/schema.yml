@@ -66,18 +66,19 @@ arbitration_settings:
 - value
 - created_on
 - updated_on
+asset_details:
+- id
+- description
+- location
+- room_id
+- rack_name
+- lowest_rack_unit
 assigned_server_roles:
 - id
 - miq_server_id
 - server_role_id
 - active
 - priority
-asset_details:
-- description
-- location
-- room
-- rack_name
-- lowest_rack_unit
 audit_events:
 - id
 - event
@@ -6136,12 +6137,10 @@ physical_servers:
 - name
 - type
 - uid_ems
-- support_contact
-- description
 - ems_ref
-- asset_details_id
 - created_at
 - updated_at
+- asset_details_id
 pictures:
 - id
 - resource_id
