@@ -70,7 +70,7 @@ asset_details:
 - id
 - description
 - location
-- room_id
+- room
 - rack_name
 - lowest_rack_unit
 assigned_server_roles:
