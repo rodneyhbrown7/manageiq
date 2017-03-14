@@ -1,9 +1,11 @@
 class Hardware < ApplicationRecord
   belongs_to  :vm_or_template
-  belongs_to  :vm,            :foreign_key => :vm_or_template_id
-  belongs_to  :miq_template,  :foreign_key => :vm_or_template_id
+  belongs_to  :vm,               :foreign_key => :vm_or_template_id
+  belongs_to  :miq_template,     :foreign_key => :vm_or_template_id
   belongs_to  :host
   belongs_to  :computer_system
+  #TODO: See if will be needed a bidirectional relationship
+#  belongs_to  :physical_server, :foreign_key => :physical_server_id, :class_name => "PhysicalServer" 
 
   has_many    :networks, :dependent => :destroy
 
