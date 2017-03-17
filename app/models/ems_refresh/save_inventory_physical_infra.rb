@@ -46,7 +46,27 @@ module EmsRefresh::SaveInventoryPhysicalInfra
                 []
               end
 
-    save_inventory_multi(ems.physical_servers, hashes, deletes, [:ems_ref])
-    store_ids_for_new_records(ems.physical_servers, hashes, :ems_ref)
+    child_keys = [:hardware]
+
+    hashes.each do |h|
+      found = PhysicalServer.find_by(:uuid  =>  h[:uuid])
+      key_backup = backup_keys(h, child_keys)
+
+      _log.info("Processing #{h[:name]} in #{ems.name}...")
+      if found.nil?
+        found = ems.physical_servers.build h
+      else
+        found.update_attributes(h)
+      end
+
+      begin
+        found.save!
+        save_child_inventory(found, key_backup, child_keys)
+      rescue ActiveRecord::RecordInvalid
+        _log.error("#{log_header} Error when trying to save Physical server")
+      end
+    end
+
   end
+
 end
