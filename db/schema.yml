@@ -75,6 +75,8 @@ asset_details:
 - lowest_rack_unit
 - created_at
 - updated_at
+- resource_id
+- resource_type
 assigned_server_roles:
 - id
 - miq_server_id
@@ -6163,7 +6165,6 @@ physical_servers:
 - serial_number
 - field_replaceable_unit
 - raw_power_state
-- asset_details_id
 pictures:
 - id
 - resource_id
